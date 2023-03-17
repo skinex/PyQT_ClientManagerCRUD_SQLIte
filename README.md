@@ -1,4 +1,4 @@
-# ClientManage-
+# PyQY DBManager
 This is a small desktop app built on PyQT framework and using SQLIte as DB 
 The user interface is created in QtDesigner. The implementation used PyQT5 framework version.
 ====================
