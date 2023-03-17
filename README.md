@@ -1,14 +1,13 @@
-# CRUD-SQLite-
-The program, for standard database queries, SELECT, UPDATE, INSERT, DELETE. 
-The SQLite database was used. 
-The user interface is created in QtDesigner. The implementation used PyQT5.
+# ClientManage-
+This is a small desktop app built on PyQT framework and using SQLIte as DB 
+The user interface is created in QtDesigner. The implementation used PyQT5 framework version.
 ====================
-Code for connect with database:
+Database connection code:
 ```python
 self.db = QtSql.QSqlDatabase.addDatabase('QSQLITE')
 self.db.setDatabaseName('fieldlist.db')
 ```
-Select data in tableView:
+Code for querying row and presenting it in tableView:
 ```python
 self.model = QtSql.QSqlTableModel()
 self.model.setTable('field')
@@ -21,7 +20,7 @@ self.model.setHeaderData(3, QtCore.Qt.Horizontal, "DOB")
 self.model.setHeaderData(4, QtCore.Qt.Horizontal,"Phone")
 self.ui.tableWidget.setModel(self.model)
 ```
-Insert Data:
+Code for row insertion:
 ```python
 self.model.insertRows(self.i,1)
 self.model.setData(self.model.index(self.i,1),self.ui.lineEdit.text())
@@ -30,7 +29,7 @@ self.model.setData(self.model.index(self.i,4), self.ui.lineEdit_3.text())
 self.model.setData(self.model.index(self.i,3), self.ui.dateEdit.text())
 self.model.submitAll()
 ```
-Update Data:
+Code for update row:
 ```python
 if self.ui.tableWidget.currentIndex().row() > -1:
      record = self.model.record(self.ui.tableWidget.currentIndex().row())
@@ -43,7 +42,7 @@ else:
      QMessageBox.question(self,'Message', "Please select a row would you like to update", QMessageBox.Ok)
      self.show()
 ```
-Delete Data:
+Code for deletingr row:
 ```python
 if self.ui.tableWidget.currentIndex().row() > -1:
     self.model.removeRow(self.ui.tableWidget.currentIndex().row())
